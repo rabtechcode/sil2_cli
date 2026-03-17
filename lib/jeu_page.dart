@@ -5,18 +5,6 @@ class JeuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.blue,
-        child: Center(
-          child: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(Icons.close, size: 200, color: Colors.white),
-          ),
-        ),
-      ),
-    );
+    return Scaffold(body: Container(color: Colors.blue));
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sil2_cli/apropos_page.dart';
 import 'package:sil2_cli/contact_page.dart';
 import 'package:sil2_cli/jeu_page.dart';
+import 'package:sil2_cli/quitter_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -89,6 +90,14 @@ class HomePage extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {
                       print("quitter appuyer");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return QuitterPage();
+                          },
+                        ),
+                      );
                     },
                     child: Container(
                       color: Colors.red.withValues(alpha: 0.4),
