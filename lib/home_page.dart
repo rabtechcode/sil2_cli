@@ -10,10 +10,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Acceuil')),
+      appBar: AppBar(title: Text('Accueil')),
       body: Column(
         children: [
-          Expanded(child: Center(child: Text('Bienvenue dans notre application'))),
+          Expanded(
+            child: Center(child: Text('Bienvenue dans\nnotre application', style: TextStyle(fontSize: 24))),
+          ),
           Expanded(
             child: Row(
               children: [
