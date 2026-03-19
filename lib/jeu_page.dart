@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -17,6 +18,9 @@ class _JeuPageState extends State<JeuPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    Timer.periodic(Duration(seconds: 3), (timer) {
+      nouveauJeu();
+    });
     nouveauJeu();
   }
 
@@ -24,14 +28,26 @@ class _JeuPageState extends State<JeuPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Jeu')),
-      body: Column(
-        children: [
-          Text('Score : $score', style: TextStyle(fontSize: 34)),
-          Text('Appuyez sur le cadre vert'),
-          Expanded(child: Row(children: [carte(position: 1), carte(position: 2), carte(position: 3)])),
-          Expanded(child: Row(children: [carte(position: 4), carte(position: 5), carte(position: 6)])),
-          Expanded(child: Row(children: [carte(position: 7), carte(position: 8), carte(position: 9)])),
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            Text('Score : $score', style: TextStyle(fontSize: 34)),
+            Text('Appuyez sur le cadre vert'),
+            Expanded(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 400),
+                child: Column(
+                  children: [
+                    Expanded(child: Row(children: [carte(position: 1), carte(position: 2), carte(position: 3)])),
+                    Expanded(child: Row(children: [carte(position: 4), carte(position: 5), carte(position: 6)])),
+                    Expanded(child: Row(children: [carte(position: 7), carte(position: 8), carte(position: 9)])),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 26),
+          ],
+        ),
       ),
     );
   }
